@@ -48,6 +48,12 @@ app.use(express.static(__dirname + "/public"))
 
 //
 
+function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+
 async function generateName(type) {
     var newName
 
@@ -75,6 +81,13 @@ app.get("/generator", async function(req, res){
 
 app.get("/upload", async function(req, res){
     res.sendFile(__dirname + "/public/html/upload.html")
+})
+
+app.get("/anonymous", async function(req, res) {
+    let files = await fs.readdirSync(__dirname + "/media/anonymous")
+    let randomAnonymous = files[getRandomInt(0, files.length - 1)]
+
+    res.sendFile(__dirname + "/media/anonymous/" + randomAnonymous)
 })
 
 // api
