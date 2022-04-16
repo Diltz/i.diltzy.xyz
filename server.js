@@ -8,6 +8,7 @@ const express = require("express")
 const helmet = require("helmet")
 const express_fileupload = require("express-fileupload")
 const ratelimit = require("express-rate-limit")
+const compression = require('compression');
 const path = require("path")
 
 const envConfig = dotenv.config().parsed
@@ -34,6 +35,7 @@ const APP_LIMITS = ratelimit({
 // app usage
 
 //app.set('trust proxy', 1)
+app.use(compression())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(helmet())
@@ -43,7 +45,7 @@ app.use(express_fileupload({
 
 // app static
 
-//app.use(express.static(__dirname + "/media")) // replaced to nginx streaming
+app.use(express.static(__dirname + "/media"))
 app.use(express.static(__dirname + "/public"))
 
 //
