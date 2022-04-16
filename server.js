@@ -43,7 +43,7 @@ app.use(express_fileupload({
 
 // app static
 
-app.use(express.static(__dirname + "/media"))
+//app.use(express.static(__dirname + "/media")) // replaced to nginx streaming
 app.use(express.static(__dirname + "/public"))
 
 //
