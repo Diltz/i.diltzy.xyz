@@ -10,7 +10,6 @@ const express_fileupload = require("express-fileupload")
 const ratelimit = require("express-rate-limit")
 const compression = require('compression');
 const path = require("path")
-const fastStatic = require('fast-static');
 
 const envConfig = dotenv.config().parsed
 var currentUploadKeys = []
@@ -46,7 +45,7 @@ app.use(express_fileupload({
 
 // app static
 
-app.use(fastStatic.use(__dirname + "/media"))
+app.use(express.static(__dirname + "/media"))
 app.use(express.static(__dirname + "/public"))
 
 //
