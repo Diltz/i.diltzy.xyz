@@ -8,7 +8,7 @@ const express = require("express")
 const helmet = require("helmet")
 const express_fileupload = require("express-fileupload")
 const ratelimit = require("express-rate-limit")
-const compression = require('compression');
+const compression = require('compression')
 const path = require("path")
 
 const envConfig = dotenv.config().parsed
@@ -43,9 +43,15 @@ app.use(express_fileupload({
     limits: { fileSize: 100 * 1024 * 1024 },
 }))
 
+app.use((request, response, next) => {
+    response.setHeader("served-by", "express")
+
+    return next()
+})
+
 // app static
 
-app.use(express.static(__dirname + "/media"))
+//app.use(express.static(__dirname + "/media"))
 app.use(express.static(__dirname + "/public"))
 
 //

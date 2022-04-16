@@ -6,5 +6,22 @@
     "express-fileupload": "^1.3.1",
     "express-rate-limit": "^6.3.0",
     "helmet": "^5.0.2"
-  }
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "i.diltzy.xyz",
+  "description": "Here is example: https://i.diltzy.xyz/4091f90d-bfc2-4130-a2bc-8dbd61a0a856.jpg",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diltz/i.diltzy.xyz.git"
+  },
+  "author": "Diltz",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Diltz/i.diltzy.xyz/issues"
+  },
+  "homepage": "https://github.com/Diltz/i.diltzy.xyz#readme"
 }
