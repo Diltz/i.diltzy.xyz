@@ -104,9 +104,7 @@ app.post("/api/upload", APP_LIMITS, async function(request, response) {
     let isShareX = request.headers["user-agent"].indexOf("ShareX") != -1
     let uploadKey = request.body["key"]
 
-    console.log("is ShareX", isShareX)
-
-    if (!request.files || Object.keys(request.files).length === 0) {
+    if (!request.files || Object.keys(request.files).length === 0 || !request.files.mediaFile) {
         return response.status(400).send({
             status: "failed",
             message: "No files uploaded"
